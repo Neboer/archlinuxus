@@ -4,3 +4,5 @@ dns2hostssyncer-git
 naiveproxy
 ddns-go
 azure-static-web-apps-cli-bin
+mkosi-git
+kvmtool-git
