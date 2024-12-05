@@ -20,6 +20,8 @@ jobs:
         with:
           fetch-depth: 0
           path: archlinuxus-scripts
+      - name: install needed software
+        run: sudo apt install rsync
       - name: prepare archlinux environment
         run: sudo ./archlinuxus-scripts/prepare-archlinux.sh
       - name: Restore cache for build
