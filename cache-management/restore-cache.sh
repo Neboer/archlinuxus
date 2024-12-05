@@ -2,10 +2,8 @@
 # because github cannot restore cache directly to high-permission directories, we need to restore them to a lower-permission directory first and then copy them to the desired directory
 # restore-cache
 if [ -d cache_backups ]; then
-    for i in $(ls -A cache_backups); do
-        rm -rf "root.x86_64/home/archlinuxus/$i"
-        mv "cache_backups/$i" root.x86_64/home/archlinuxus
-    done
+    echo "Restoring cache..."
+    mv -f cache_backups/.cache root.x86_64/home/archlinuxus
     chown -R 1000:1000 "root.x86_64/home/archlinuxus"
 fi
 

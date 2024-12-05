@@ -24,14 +24,16 @@ jobs:
         run: sudo apt install rsync
       - name: prepare archlinux environment
         run: sudo ./archlinuxus-scripts/prepare-archlinux.sh
-      - name: Restore cache for build
+      - name: Fetch cache from cloud
         id: cache-restore
         uses: actions/cache@v4
         with:
-          path: root.x86_64/home/archlinuxus/.cache
+          path: cache_backups
           key: ${{ runner.os }}-root-cache
           restore-keys: |
             ${{ runner.os }}-root-cache-
+      - name: Restore cache for build
+        run: sudo ./archlinuxus-scripts/cache-management/restore-cache.sh
       - name: build repo
         run: sudo ./archlinuxus-scripts/build-repo.sh
       - name: copy file via ssh key
@@ -45,8 +47,10 @@ jobs:
           source: "root.x86_64/home/archlinuxus/repo"
           target: ${{ secrets.REMOTE_REPO }}
           strip_components: 3
-      - name: Save and update cache for next build
+      - name: Prepare to save cache for next build
+        run: sudo ./archlinuxus-scripts/cache-management/prepare-cache.sh
+      - name: Upload cache to cloud
         uses: actions/cache@v4
         with:
-          path: root.x86_64/home/archlinuxus/.cache
+          path: cache_backups
           key: ${{ runner.os }}-root-cache

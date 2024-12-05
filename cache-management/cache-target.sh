@@ -1,5 +1,6 @@
 #!/bin/bash -e
 
+# this file is useless.
 SYSTEM_CACHE_DIRS=(
     root.x86_64/var/cache
 )
