@@ -3,6 +3,8 @@ name: Build And Push Software Repository
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "0 0 * * *" # Run every day at midnight
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
