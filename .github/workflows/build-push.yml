@@ -54,3 +54,4 @@ jobs:
           r2-bucket: archlinus
           source-dir: root.x86_64/home/archlinuxus/repo
           destination-dir: ./
+          keep-file-fresh: true
