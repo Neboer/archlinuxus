@@ -6,3 +6,6 @@ ddns-go
 azure-static-web-apps-cli-bin
 mkosi-git
 kvmtool-git
+lsyncd
+ntfysh
+mcping-git
