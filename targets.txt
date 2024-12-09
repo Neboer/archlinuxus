@@ -9,3 +9,4 @@ kvmtool-git
 lsyncd
 ntfysh
 mcping-git
+mcrcon
