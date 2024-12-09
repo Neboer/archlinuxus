@@ -10,3 +10,4 @@ lsyncd
 ntfysh
 mcping-git
 mcrcon
+paper-velocity-git
