@@ -14,11 +14,4 @@ aliyun-cli-bin
 micromamba-bin
 python-ninja
 python-pyrsistent
-python-shiboken2
 simdjson
-google-chrome
-linuxqq
-pyside2
-visual-studio-code-bin
-wechat-universal-bwrap
-zotero-beta-bin
