@@ -15,3 +15,4 @@ micromamba-bin
 python-ninja
 python-pyrsistent
 simdjson
+iamb
