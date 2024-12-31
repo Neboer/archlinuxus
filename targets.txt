@@ -10,7 +10,6 @@ lsyncd
 ntfysh
 mcping-git
 mcrcon
-aliyun-cli-bin
 micromamba-bin
 python-ninja
 python-pyrsistent
