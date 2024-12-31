@@ -16,3 +16,4 @@ python-ninja
 python-pyrsistent
 simdjson
 iamb
+ossutil
