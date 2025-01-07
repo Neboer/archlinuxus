@@ -16,3 +16,4 @@ python-pyrsistent
 simdjson
 iamb
 ossutil
+rustdesk-server-bin
