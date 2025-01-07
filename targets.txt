@@ -17,4 +17,3 @@ simdjson
 iamb
 ossutil
 rustdesk-server-bin
-pandoc-bin
