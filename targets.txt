@@ -17,3 +17,4 @@ simdjson
 iamb
 ossutil
 rustdesk-server-bin
+pino-pretty
