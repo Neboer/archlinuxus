@@ -18,3 +18,4 @@ iamb
 ossutil
 rustdesk-server-bin
 pino-pretty
+powershell-bin
