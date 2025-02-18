@@ -5,8 +5,6 @@ on:
     branches: [main]
   schedule:
     - cron: "0 0 * * *" # Run every day at midnight
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 concurrency:
@@ -22,9 +20,23 @@ jobs:
         with:
           fetch-depth: 0
           path: archlinuxus-scripts
-      - name: install needed software
+      - name: Install AWS CLI
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+      - name: Configure AWS CLI for Cloudflare R2
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.R2_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          aws configure set region auto
+          aws configure set s3.endpoint_url https://$${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+      - name: Delete all objects in R2 bucket
+        run: |
+          aws s3 rm s3://${{ secrets.R2_BUCKET }} --recursive --endpoint-url https://$${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+      - name: Install needed software
         run: sudo apt install rsync
-      - name: prepare archlinux environment
+      - name: Prepare Arch Linux environment
         run: sudo ./archlinuxus-scripts/prepare-archlinux.sh
       - name: Fetch cache from cloud
         id: cache-restore
@@ -36,7 +48,7 @@ jobs:
             ${{ runner.os }}-root-cache-
       - name: Restore cache for build
         run: sudo ./archlinuxus-scripts/cache-management/restore-cache.sh
-      - name: build repo
+      - name: Build repo
         run: sudo ./archlinuxus-scripts/build-repo.sh
       - name: Prepare to save cache for next build
         run: sudo ./archlinuxus-scripts/cache-management/prepare-cache.sh
@@ -55,3 +67,4 @@ jobs:
           source-dir: root.x86_64/home/archlinuxus/repo
           destination-dir: ./
           keep-file-fresh: true
+
