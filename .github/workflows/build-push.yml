@@ -30,10 +30,10 @@ jobs:
           aws configure set aws_access_key_id ${{ secrets.R2_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.R2_SECRET_ACCESS_KEY }}
           aws configure set region auto
-          aws configure set s3.endpoint_url https://$${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          aws configure set s3.endpoint_url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
       - name: Delete all objects in R2 bucket
         run: |
-          aws s3 rm s3://${{ secrets.R2_BUCKET }} --recursive --endpoint-url https://$${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          aws s3 rm s3://${{ secrets.R2_BUCKET }} --recursive --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
       - name: Install needed software
         run: sudo apt install rsync
       - name: Prepare Arch Linux environment
