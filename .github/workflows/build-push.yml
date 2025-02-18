@@ -20,20 +20,6 @@ jobs:
         with:
           fetch-depth: 0
           path: archlinuxus-scripts
-      - name: Install AWS CLI
-        run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install --update
-      - name: Configure AWS CLI for Cloudflare R2
-        run: |
-          aws configure set aws_access_key_id ${{ secrets.R2_ACCESS_KEY_ID }}
-          aws configure set aws_secret_access_key ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          aws configure set region auto
-          aws configure set s3.endpoint_url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
-      - name: Delete all objects in R2 bucket
-        run: |
-          aws s3 rm s3://${{ secrets.R2_BUCKET }} --recursive --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
       - name: Install needed software
         run: sudo apt install rsync
       - name: Prepare Arch Linux environment
@@ -57,6 +43,20 @@ jobs:
         with:
           path: cache_backups
           key: ${{ runner.os }}-root-cache
+      - name: Install AWS CLI
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install --update
+      - name: Configure AWS CLI for Cloudflare R2
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.R2_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          aws configure set region auto
+          aws configure set s3.endpoint_url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+      - name: Delete all objects in R2 bucket
+        run: |
+          aws s3 rm s3://${{ secrets.R2_BUCKET }} --recursive --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
       - name: Upload to Cloudflare R2 Storage
         uses: ryand56/r2-upload-action@latest
         with:
