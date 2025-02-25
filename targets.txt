@@ -11,7 +11,6 @@ ntfysh
 mcping-git
 mcrcon
 micromamba-bin
-python-ninja
 python-pyrsistent
 simdjson
 iamb
