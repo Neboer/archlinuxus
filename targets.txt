@@ -19,3 +19,5 @@ rustdesk-server-bin
 pino-pretty
 powershell-bin
 baibot-git
+frpc
+frps
