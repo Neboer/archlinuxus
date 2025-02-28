@@ -21,3 +21,4 @@ powershell-bin
 baibot-git
 frpc
 frps
+lobe-chat
