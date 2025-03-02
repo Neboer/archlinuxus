@@ -23,3 +23,4 @@ frpc
 frps
 lobe-chat
 ceph-bin
+python3-synapse-s3-storage-provider
