@@ -26,7 +26,7 @@ jobs:
         run: sudo ./archlinuxus-scripts/prepare-archlinux.sh
       - name: Fetch cache from cloud
         id: cache-restore
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: |
             /home/runner/.cache
@@ -71,7 +71,7 @@ jobs:
       # - name: Prepare to save cache for next build
       #   run: sudo ./archlinuxus-scripts/cache-management/prepare-cache.sh
       - name: Upload cache to cloud
-        uses: actions/cache@v4
+        uses: actions/cache/save@v4
         with:
           path: |
             /home/runner/.cache
