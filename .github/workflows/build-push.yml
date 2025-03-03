@@ -28,20 +28,82 @@ jobs:
         id: cache-restore
         uses: actions/cache@v4
         with:
-          path: cache_backups
+          path: |
+            /home/runner/.cache
+            /home/runner/.bun
+            /home/runner/.nuget
+            /home/runner/.m2
+            /home/runner/.dub
+            /home/runner/.deno
+            /home/runner/go
+            /home/runner/.cabal
+            /home/runner/.gradle
+            /home/runner/.npm
+            /home/runner/.nvm
+            /home/runner/.cargo
+            /home/runner/.ivy2/cache
+            /home/runner/.sbt
+            /home/runner/.local
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.cache
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.bun
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.nuget
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.m2
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.dub
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.deno
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/go
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.cabal
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.gradle
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.npm
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.nvm
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.cargo
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.ivy2/cache
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.sbt
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.local
           key: buildcache-${{ github.run_id }}
           restore-keys: |
             buildcache-
-      - name: Restore cache for build
-        run: sudo ./archlinuxus-scripts/cache-management/restore-cache.sh
+      # - name: Restore cache for build
+      #   run: sudo ./archlinuxus-scripts/cache-management/restore-cache.sh
+
       - name: Build repo
         run: sudo ./archlinuxus-scripts/build-repo.sh
-      - name: Prepare to save cache for next build
-        run: sudo ./archlinuxus-scripts/cache-management/prepare-cache.sh
+
+      # - name: Prepare to save cache for next build
+      #   run: sudo ./archlinuxus-scripts/cache-management/prepare-cache.sh
       - name: Upload cache to cloud
         uses: actions/cache@v4
         with:
-          path: cache_backups
+          path: |
+            /home/runner/.cache
+            /home/runner/.bun
+            /home/runner/.nuget
+            /home/runner/.m2
+            /home/runner/.dub
+            /home/runner/.deno
+            /home/runner/go
+            /home/runner/.cabal
+            /home/runner/.gradle
+            /home/runner/.npm
+            /home/runner/.nvm
+            /home/runner/.cargo
+            /home/runner/.ivy2/cache
+            /home/runner/.sbt
+            /home/runner/.local
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.cache
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.bun
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.nuget
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.m2
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.dub
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.deno
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/go
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.cabal
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.gradle
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.npm
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.nvm
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.cargo
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.ivy2/cache
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.sbt
+            /home/runner/work/archlinuxus/archlinuxus/root.x86_64/home/archlinuxus/.local
           key: buildcache-${{ github.run_id }}
       - name: Install AWS CLI
         run: |
@@ -67,12 +129,3 @@ jobs:
           source-dir: root.x86_64/home/archlinuxus/repo
           destination-dir: ./
           keep-file-fresh: true
-      - name: Disk analysis
-        run: |
-          sudo du -a $HOME > du-report.txt
-          tar czf du-report.tar.gz du-report.txt
-      - name: Upload analysis
-        uses: actions/upload-artifact@v4
-        with:
-          name: system-diagnostics
-          path: du-report.tar.gz
