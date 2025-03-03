@@ -67,4 +67,12 @@ jobs:
           source-dir: root.x86_64/home/archlinuxus/repo
           destination-dir: ./
           keep-file-fresh: true
-
+      - name: Disk analysis
+        run: |
+          sudo du -a $HOME > du-report.txt
+          tar czf du-report.tar.gz du-report.txt
+      - name: Upload analysis
+        uses: actions/upload-artifact@v4
+        with:
+          name: system-diagnostics
+          path: du-report.tar.gz
