@@ -42,18 +42,6 @@ jobs:
       - name: Build repo
         run: sudo ./archlinuxus-scripts/build-repo.sh
 
-      - name: Prepare to save cache for next build
-        run: |
-          sudo rsync -avr --ignore-errors --remove-source-files --files-from=./archlinuxus-scripts/cache-management/cache-dirs.txt / cache_backups/ || true
-          sudo chown -R runner:runner cache_backups || true
-          sudo mkdir -p cache_backups
-
-      - name: Upload cache to cloud
-        uses: actions/cache/save@v4
-        with:
-          path: cache_backups
-          key: buildcache-${{ github.run_id }}
-
       - name: Install AWS CLI
         run: |
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -78,3 +66,15 @@ jobs:
           source-dir: root.x86_64/home/archlinuxus/repo
           destination-dir: ./
           keep-file-fresh: true
+
+      - name: Prepare to save cache for next build
+        run: |
+          sudo rsync -avr --ignore-errors --remove-source-files --files-from=./archlinuxus-scripts/cache-management/cache-dirs.txt / cache_backups/ || true
+          sudo chown -R runner:runner cache_backups || true
+          sudo mkdir -p cache_backups
+
+      - name: Upload cache to cloud
+        uses: actions/cache/save@v4
+        with:
+          path: cache_backups
+          key: buildcache-${{ github.run_id }}
