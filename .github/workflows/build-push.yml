@@ -36,16 +36,17 @@ jobs:
       
       - name: Restore cache for build
         run: |
-          sudo rsync -av --remove-source-files cache_backups/ /
-          sudo chown -R 1000:1000 root.x86_64/home/archlinuxus
+          sudo rsync -av --remove-source-files cache_backups/ / ; true
+          sudo chown -R 1000:1000 root.x86_64/home/archlinuxus ; true
 
       - name: Build repo
         run: sudo ./archlinuxus-scripts/build-repo.sh
 
       - name: Prepare to save cache for next build
         run: |
-          sudo rsync -av --remove-source-files --files-from=./archlinuxus-scripts/cache-management/cache-dirs.txt / cache_backups/
-          sudo chown -R runner:runner cache_backups
+          sudo rsync -av --remove-source-files --files-from=./archlinuxus-scripts/cache-management/cache-dirs.txt / cache_backups/ ; true
+          sudo chown -R runner:runner cache_backups ; true
+          sudo mkdir -p cache_backups
 
       - name: Upload cache to cloud
         uses: actions/cache/save@v4
