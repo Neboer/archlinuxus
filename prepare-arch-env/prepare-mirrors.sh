@@ -17,8 +17,14 @@ function upgrade-and-rank-mirrors() {
     rankmirrors -n 2 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
 }
 
+function add-multilib() {
+    echo '[multilib]' >> /etc/pacman.conf
+    echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
+}
+
 prepare-basic-mirror
 prepare-keys
+add-multilib
 pacman -Syu --noconfirm
 # upgrade-and-rank-mirrors
 # echo "ranked mirrors:"
