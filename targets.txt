@@ -26,3 +26,4 @@ ceph-bin
 python3-synapse-s3-storage-provider
 element-web
 pacman-static
+winesync
