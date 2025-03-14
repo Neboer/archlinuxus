@@ -27,3 +27,5 @@ python3-synapse-s3-storage-provider
 element-web
 pacman-static
 proton-ge-custom-bin
+aliyun-cli-bin
+android-sdk-platform-tools
