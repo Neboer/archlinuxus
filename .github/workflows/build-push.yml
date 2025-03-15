@@ -29,19 +29,23 @@ jobs:
         run: sudo apt install rsync
       - name: Prepare Arch Linux environment
         run: sudo ./archlinuxus-scripts/prepare-archlinux.sh
+      - name: Prepare cache mnt folder
+        run: |
+          sudo mkdir -p /mnt/runner
+          sudo chown -R runner:runner /mnt/runner
 
       - name: Fetch cache from cloud
         id: cache-restore
         uses: actions/cache/restore@v4
         with:
-          path: cache_backups
+          path: /mnt/runner/cache_backups
           key: buildcache-${{ github.run_id }}
           restore-keys: |
             buildcache-
       
       - name: Restore cache for build
         run: |
-          sudo rsync -a --ignore-errors --remove-source-files cache_backups/ / || true
+          sudo rsync -a --ignore-errors --remove-source-files /mnt/runner/cache_backups/ / || true
           sudo chown -R 1000:1000 root.x86_64/home/archlinuxus
 
       - name: Build repo
@@ -74,14 +78,14 @@ jobs:
 
       - name: Prepare to save cache for next build
         run: |
-          sudo rsync -ar --ignore-errors --remove-source-files --files-from=./archlinuxus-scripts/cache-management/cache-dirs.txt / cache_backups/ || true
-          sudo chown -R runner:runner cache_backups || true
-          sudo mkdir -p cache_backups
+          sudo rsync -ar --ignore-errors --remove-source-files --files-from=./archlinuxus-scripts/cache-management/cache-dirs.txt / /mnt/runner/cache_backups/ || true
+          sudo chown -R runner:runner /mnt/runner/cache_backups || true
+          sudo mkdir -p /mnt/runner/cache_backups
 
       - name: Upload cache to cloud
         uses: actions/cache/save@v4
         with:
-          path: cache_backups
+          path: /mnt/runner/cache_backups
           key: buildcache-${{ github.run_id }}
 
       - name: Always Wait
