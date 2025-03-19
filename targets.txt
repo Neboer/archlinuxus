@@ -29,3 +29,4 @@ pacman-static
 proton-ge-custom-bin
 aliyun-cli-bin
 android-sdk-platform-tools
+synapse-admin
