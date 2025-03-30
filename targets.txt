@@ -31,3 +31,4 @@ aliyun-cli-bin
 android-sdk-platform-tools
 synapse-admin
 etcd
+nerdctl-full-bin
