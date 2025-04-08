@@ -32,3 +32,4 @@ android-sdk-platform-tools
 synapse-admin
 etcd
 nerdctl-full-bin
+deepseek-free-api-git
