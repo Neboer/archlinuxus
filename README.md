@@ -16,14 +16,15 @@ Archlinux US软件仓库收录所有在AUR上发布但是没有直接打包的�
 ## archlinuxcn代劳的包
 
 如下的包已经使用archlinuxcn代劳打包，我们不需要再处理：
-naiveproxy
-yay
-sing-box
-micromamba-bin -> micromamba
-frpc
-frps
-pacman-static
-simdjson
+
+- naiveproxy
+- yay
+- sing-box
+- micromamba-bin -> micromamba
+- frpc
+- frps
+- pacman-static
+- simdjson
 
 ## 此镜像如何工作？
 
