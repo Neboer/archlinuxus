@@ -25,6 +25,7 @@ Archlinux US软件仓库收录所有在AUR上发布但是没有直接打包的�
 - frps
 - pacman-static
 - simdjson
+- uptime-kuma
 
 ## 此镜像如何工作？
 
