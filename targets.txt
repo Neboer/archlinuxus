@@ -25,3 +25,4 @@ synapse-admin
 etcd
 nerdctl-full-bin
 deepseek-free-api-git
+steamdepotdownloader 
