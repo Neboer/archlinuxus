@@ -27,3 +27,4 @@ nerdctl-full-bin
 deepseek-free-api-git
 steamdepotdownloader 
 uptime-kuma-git
+napcatqq-git
