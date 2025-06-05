@@ -25,13 +25,7 @@ jobs:
           remove-docker-images: true
           remove-large-packages: true
           remove-cached-tools: true
-          remove-swapfile: true
-
-      - name: Prepare Rescue SSH
-        run: curl -sSL https://github.com/Neboer/TempActionsServerUS/raw/refs/heads/main/install-ygg-ssh-env.sh | bash -e
-        env:
-          YGGCONFDATA: ${{ secrets.YGGCONFDATA }}
-          PUBKEY: ${{ secrets.PUBKEY }}
+          remove-swapfile: trueSS
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -99,7 +93,3 @@ jobs:
         with:
           path: /mnt/runner/cache_backups
           key: buildcache-${{ github.run_id }}
-
-      - name: Always Wait
-        if: always()
-        run: sleep 5.5h
