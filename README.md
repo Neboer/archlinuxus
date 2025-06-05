@@ -13,6 +13,20 @@ Archlinux US软件仓库收录所有在AUR上发布但是没有直接打包的�
 
 因此我们决定制作自己的镜像源。
 
+## archlinuxcn代劳的包
+
+如下的包已经使用archlinuxcn代劳打包，我们不需要再处理：
+
+- naiveproxy
+- yay
+- sing-box
+- micromamba-bin -> micromamba
+- frpc
+- frps
+- pacman-static
+- simdjson
+- uptime-kuma
+
 ## 此镜像如何工作？
 
 archlinux-us 镜像的工作原理如下：
