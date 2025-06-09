@@ -29,3 +29,4 @@ steamdepotdownloader
 uptime-kuma-git
 napcatqq-git
 paper-velocity
+isd
