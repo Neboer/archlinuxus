@@ -31,3 +31,4 @@ napcatqq-git
 paper-velocity
 isd
 jdk21-temurin
+mjolnir
