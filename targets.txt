@@ -31,6 +31,5 @@ napcatqq-git
 paper-velocity
 isd
 jdk21-temurin
-mjolnir
 pacman-hook-kernel-install
-stuntman
+python39
