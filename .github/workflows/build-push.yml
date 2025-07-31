@@ -7,10 +7,6 @@ on:
     - cron: "0 0 * * *" # Run every day at midnight
   workflow_dispatch:
 
-concurrency:
-  group: archlinuxus
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
