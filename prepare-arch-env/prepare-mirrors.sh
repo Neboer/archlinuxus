@@ -2,7 +2,7 @@
 
 function prepare-basic-mirror() {
     cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-    echo 'Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+    echo 'Server = https://arch.mirror.constant.com/$repo/os/$arch' > /etc/pacman.d/mirrorlist
 }
 
 function prepare-keys() {
