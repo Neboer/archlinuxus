@@ -1,8 +1,6 @@
 dns2hostssyncer-git
 ddns-go
 azure-static-web-apps-cli-bin
-mkosi-git
-kvmtool-git
 lsyncd
 ntfysh
 mcping-git
@@ -33,3 +31,4 @@ isd
 jdk21-temurin
 pacman-hook-kernel-install
 python39
+s3-syncer
