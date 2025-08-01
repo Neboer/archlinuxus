@@ -32,4 +32,3 @@ jdk21-temurin
 pacman-hook-kernel-install
 python39
 s3-syncer
-neofetch
