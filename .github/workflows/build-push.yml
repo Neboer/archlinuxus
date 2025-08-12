@@ -66,7 +66,7 @@ jobs:
           aws configure set s3.endpoint_url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
       - name: Delete all objects in R2 bucket
         run: |
-          aws s3 rm s3://${{ secrets.R2_BUCKET }} --recursive --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          aws s3 rm s3://${{ secrets.R2_BUCKET }}/x86_64 --recursive --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
       - name: Upload to Cloudflare R2 Storage
         uses: ryand56/r2-upload-action@latest
         with:
