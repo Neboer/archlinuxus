@@ -33,3 +33,4 @@ pacman-hook-kernel-install
 python39
 s3-syncer
 maubot
+httpfs2-2gbplus
