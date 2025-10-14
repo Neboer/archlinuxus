@@ -1,3 +1,4 @@
+mbctl-git
 dns2hostssyncer-git
 ddns-go
 azure-static-web-apps-cli-bin
