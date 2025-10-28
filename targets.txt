@@ -6,8 +6,6 @@ lsyncd
 ntfysh
 mcping-git
 mcrcon
-python-pyrsistent
-iamb
 ossutil
 rustdesk-server-bin
 pino-pretty
@@ -20,12 +18,9 @@ element-web
 proton-ge-custom-bin
 aliyun-cli-bin
 android-sdk-platform-tools
-synapse-admin
 etcd
 nerdctl-full-bin
 deepseek-free-api-git
-steamdepotdownloader 
-uptime-kuma-git
 napcatqq-git
 paper-velocity
 isd
