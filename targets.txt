@@ -11,8 +11,6 @@ rustdesk-server-bin
 pino-pretty
 powershell-bin
 baibot-git
-lobe-chat
-ceph-bin
 python3-synapse-s3-storage-provider
 element-web
 proton-ge-custom-bin
@@ -20,8 +18,6 @@ aliyun-cli-bin
 android-sdk-platform-tools
 etcd
 nerdctl-full-bin
-deepseek-free-api-git
-napcatqq-git
 paper-velocity
 isd
 jdk21-temurin
