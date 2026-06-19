@@ -18,3 +18,5 @@ pacman-hook-kernel-install
 s3-syncer
 httpfs2-2gbplus
 gentoo-color-bash
+phantun
+phantun-dkms
