@@ -21,3 +21,4 @@ gentoo-color-bash
 phantun
 phantun-dkms
 claude-code
+nxist-wifi-login
