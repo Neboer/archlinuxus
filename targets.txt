@@ -20,3 +20,4 @@ httpfs2-2gbplus
 gentoo-color-bash
 phantun
 phantun-dkms
+claude-code
