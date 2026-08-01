@@ -8,7 +8,6 @@ mcping-git
 mcrcon
 ossutil
 pino-pretty
-powershell-bin
 aliyun-cli-bin
 android-sdk-platform-tools
 etcd
@@ -22,3 +21,5 @@ phantun
 phantun-dkms
 claude-code
 nxist-wifi-login
+k3s
+keadm-bin
