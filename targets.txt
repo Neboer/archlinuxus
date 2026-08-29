@@ -11,7 +11,6 @@ pino-pretty
 aliyun-cli-bin
 android-sdk-platform-tools
 etcd
-nerdctl-full-bin
 isd
 pacman-hook-kernel-install
 s3-syncer
